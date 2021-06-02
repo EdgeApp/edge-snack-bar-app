@@ -1,0 +1,37 @@
+{
+    "ratesServerAddress": "https://rates1.edge.app/",
+    "currencies": {
+        "BCH": {
+            "address": "",
+            "currencyName": "bitcoincash"
+        },
+        "BTC": {
+            "address": "",
+            "currencyName": "bitcoin"
+        },
+        "DOGE": {
+            "address": "",
+            "currencyName": "dogecoin"
+        },
+        "ETH": {
+            "address": "",
+            "currencyName": "ethereum"
+        },
+        "FIO": {
+            "address": "",
+            "currencyName": "fio"
+        },
+        "LTC": {
+            "address": "",
+            "currencyName": "litecoin"
+        },
+        "XMR": {
+            "address": "",
+            "currencyName": "monero"
+        },
+        "XRP": {
+            "address": "",
+            "currencyName": "ripple"
+        }
+    }
+}
