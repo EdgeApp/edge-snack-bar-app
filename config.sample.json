@@ -1,0 +1,56 @@
+{
+    "BCH": {
+        "address": "",
+        "uriScheme": "bitcoincash:",
+        "amountParam": "?amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/bitcoin-cash"
+    },
+    "BTC": {
+        "address": "",
+        "uriScheme": "bitcoin:",
+        "amountParam": "?amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/bitcoin"
+    },
+    "DOGE": {
+        "address": "",
+        "uriScheme": "dogecoin:",
+        "amountParam": "?amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/dogecoin"
+    },
+    "ETH": {
+        "address": "",
+        "uriScheme": "ethereum:",
+        "amountParam": "?amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/ethereum"
+    },
+    "FIO": {
+        "address": "",
+        "uriScheme": "fio:",
+        "amountParam": "?amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/fio-protocol"
+    },
+    "LTC": {
+        "address": "",
+        "uriScheme": "litecoin:",
+        "amountParam": "?amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/litecoin"
+    },
+    "XLM": {
+        "address": "",
+        "uriScheme": "web+stellar:pay?destination=",
+        "amountParam": "&amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/stellar"
+    },
+    "XMR": {
+        "address": "",
+        "uriScheme": "monero:",
+        "amountParam": "?amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/monero"
+    },
+    "XRP": {
+        "address": "",
+        "uriScheme": "ripple:",
+        "amountParam": "?amount=",
+        "rateEndpoint": "https://api.coincap.io/v2/assets/xrp"
+    }
+}
