@@ -1,71 +1,50 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import config from '../config.json'
-
-interface CurrencyOption {
-  address: string
-  uriScheme: string
-  amountParam: string
-  rateEndpoint: string
-}
-
-const currencyOptions: { [key: string]: CurrencyOption } = config
+import { currencies, fetchExchangeRates } from './exchangeRate'
 
 const initRates: { [key: string]: number } = {} // Initialize empty object to store initial exchange rates in state
 // Set exchange rates to zero initially until they are fetched from API
-for (const key in currencyOptions) {
+for (const key in currencies) {
   initRates[key] = 0
 }
 
-const rateEndpointsArr: string[] = [] // Initialize empty array to store API endpoints of exchange rates
-// Iterate through `currencyOptions` object to add endpoints to array
-for (const key in currencyOptions) {
-  const { rateEndpoint } = currencyOptions[key]
-  rateEndpointsArr.push(rateEndpoint)
-}
-
-const rateFetchInterval = 30000 // Variable to set interval for fetching exchange rates (milliseconds)
+const rateFetchDelay = 5000 // Variable to set delay for fetching exchange rates (milliseconds)
 
 export function MainScene(): JSX.Element {
   const isInitialRender = useRef(true) // Create a mutable ref object to keep track of initial render
   const [usdToCoinRates, setUsdToCoinRates] = useState(initRates) // State variable to keep track of the exchange rates
 
   useEffect(() => {
-    // Helper function to update the exchange rates
     const updateExchangeRates = (): void => {
-      // Create an arry of promises
-      const promisesArr = rateEndpointsArr.map(
-        async url =>
-          await fetch(url).then(async response => await response.json())
-      )
-
-      // Resolve array of promises for exchange rates
-      Promise.all(promisesArr)
-        .then(responses => {
-          const exchangeRates: { [key: string]: number } = {} // Create 'exchangeRates' object to store all exchange rate information
-          // Iterate through the promise results to add exchange rate information for each coin
-          for (const response of responses) {
-            const { data } = response
-            exchangeRates[data.symbol] = 1 / data.priceUsd
-          }
-          setUsdToCoinRates(exchangeRates) // Update state of exchange rates
+      fetchExchangeRates()
+        .then(exchangeRates => {
+          setUsdToCoinRates(exchangeRates)
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          console.log(error)
+        })
+        .finally(() => setTimeout(updateExchangeRates, rateFetchDelay))
     }
 
     // Check if this is the initial render
     if (isInitialRender.current) {
       isInitialRender.current = false // Set isInitialMount to false
 
-      updateExchangeRates() // Update exchange rates on initial render
-      setInterval(updateExchangeRates, rateFetchInterval) // Continue to update exchange rates in intervals
+      updateExchangeRates()
+
+      // fetchExchangeRates() // Update exchange rates on initial render
+      //   .then(exchangeRates => {
+      //     setUsdToCoinRates(exchangeRates)
+      //     // setInterval(updateExchangeRates, rateFetchInterval) // Continue to update exchange rates in intervals
+      //   })
+      //   .catch(error => console.log(error))
     }
   }, [usdToCoinRates])
 
   return (
     <>
       <h1>Edge Snack Bar</h1>
-      {Object.keys(currencyOptions)
+      {Object.keys(currencies)
         .sort((a, b) => a.localeCompare(b))
         .map(option => (
           <p key={option}>
