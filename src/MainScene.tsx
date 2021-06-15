@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 import { CodeScreen } from './components/CodeScreen'
-import { Header } from './components/Header'
+import { Header, headerHeight } from './components/Header'
 import { SelectScreen } from './components/SelectScreen'
 import { Waves } from './components/Waves'
 import { currencies, fetchExchangeRates } from './exchangeRate'
@@ -14,6 +14,28 @@ const bodyStyle = {
   minHeight: '768px',
   overflowX: 'hidden',
   position: 'relative'
+}
+
+export const initBgDivStyle = {
+  position: 'absolute' as const,
+  display: 'inline',
+  top: headerHeight,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  background:
+    'radial-gradient(50% 50% at 50% 50%, rgba(175, 173, 173, 0.95) 50.52%, rgba(208, 205, 205, 0.95) 81.25%, rgba(196, 196, 196, 0.95) 100%)',
+  zIndex: 3
+}
+
+const foregroundDivStyle = {
+  position: 'absolute' as const,
+  top: headerHeight,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  overflowY: 'auto' as const,
+  zIndex: 4
 }
 
 const wavesPositionDivStyle = {
@@ -29,6 +51,7 @@ export function MainScene(): JSX.Element {
   const [showCodeScreen, setShowCodeScreen] = useState(false) // State variable to determine whether to show the code screen
   const [coinSelection, setCoinSelection] = useState('') // State variable that keeps track of coin selection
   const [qrCodeValue, setQrCodeValue] = useState('') // State variable that contains the value for the QR code
+  const [bgDivStyle, setBgDivStyle] = useState(initBgDivStyle) // State variable for the background blur overlay
 
   useEffect(() => {
     const updateExchangeRates = (): void => {
@@ -62,25 +85,32 @@ export function MainScene(): JSX.Element {
 
   const handleOptionClick = (option): void => {
     setCoinSelection(option)
-    setShowCodeScreen(true)
+    setBgDivStyle({ ...initBgDivStyle, display: 'none' })
+    setTimeout(() => {
+      setShowCodeScreen(true)
+    }, 350)
   }
 
   return (
     <>
       <Header />
-      {showCodeScreen && (
-        <CodeScreen
-          coinSelection={coinSelection}
-          qrCodeValue={qrCodeValue}
-          setShowCodeScreen={setShowCodeScreen}
-        />
-      )}
-      {!showCodeScreen && (
-        <SelectScreen
-          usdToCoinRates={Object.keys(usdToCoinRates)}
-          handleOptionClick={handleOptionClick}
-        />
-      )}
+      <div style={bgDivStyle} />
+      <div style={foregroundDivStyle}>
+        {showCodeScreen && (
+          <CodeScreen
+            coinSelection={coinSelection}
+            qrCodeValue={qrCodeValue}
+            setShowCodeScreen={setShowCodeScreen}
+            setBgDivStyle={setBgDivStyle}
+          />
+        )}
+        {!showCodeScreen && (
+          <SelectScreen
+            usdToCoinRates={Object.keys(usdToCoinRates)}
+            handleOptionClick={handleOptionClick}
+          />
+        )}
+      </div>
       <div style={wavesPositionDivStyle}>
         <Waves />
       </div>
