@@ -17,6 +17,7 @@ export function MainScene(): JSX.Element {
   const [usdToCoinRates, setUsdToCoinRates] = useState({}) // State variable to keep track of the exchange rates
   const [showCodeScreen, setShowCodeScreen] = useState(false) // State variable to determine whether to show the code screen
   const [coinSelection, setCoinSelection] = useState('') // State variable that keeps track of coin selection
+  const [qrCodeValue, setQrCodeValue] = useState('') // State variable that contains the value for the QR code
 
   useEffect(() => {
     const updateExchangeRates = (): void => {
@@ -37,8 +38,16 @@ export function MainScene(): JSX.Element {
       Object.assign(document.body.style, bodyStyle) // Update styling for 'body'
 
       updateExchangeRates()
+    } else {
+      // On subsequent renders, update QR code value
+      const currencyInfo = currencies[coinSelection]
+      const currencyAmount: number = usdToCoinRates[coinSelection]
+      // Update QR code's value in state
+      setQrCodeValue(
+        `${currencyInfo?.currencyName}:${currencyInfo?.address}?amount=${currencyAmount}`
+      )
     }
-  }, [usdToCoinRates])
+  }, [usdToCoinRates, coinSelection]) // Only re-run the effect if the exchange rates or the coin selection changes
 
   const handleOptionClick = (option): void => {
     setCoinSelection(option)
@@ -51,6 +60,7 @@ export function MainScene(): JSX.Element {
       {showCodeScreen && (
         <CodeScreen
           coinSelection={coinSelection}
+          qrCodeValue={qrCodeValue}
           setShowCodeScreen={setShowCodeScreen}
         />
       )}
