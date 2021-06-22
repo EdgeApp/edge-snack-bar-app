@@ -1,5 +1,6 @@
 {
     "ratesServerAddress": "https://rates1.edge.app/",
+    "assetServerAddress": "https://content.edge.app/",
     "currencies": {
         "BCH": {
             "address": "",
