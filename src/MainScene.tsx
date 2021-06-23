@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { CodeScreen } from './components/CodeScreen'
 import { Header } from './components/Header'
+import { SelectScreen } from './components/SelectScreen'
 import { currencies, fetchExchangeRates } from './exchangeRate'
 
 const bodyStyle = {
@@ -65,18 +66,10 @@ export function MainScene(): JSX.Element {
         />
       )}
       {!showCodeScreen && (
-        <>
-          {Object.keys(currencies)
-            .sort((a, b) => a.localeCompare(b))
-            .map(option => (
-              <React.Fragment key={option}>
-                <button onClick={() => handleOptionClick(option)}>
-                  {option}: {usdToCoinRates[option]}
-                </button>
-                <br />
-              </React.Fragment>
-            ))}
-        </>
+        <SelectScreen
+          usdToCoinRates={Object.keys(usdToCoinRates)}
+          handleOptionClick={handleOptionClick}
+        />
       )}
     </>
   )
