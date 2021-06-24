@@ -5,9 +5,11 @@ import logo from '../images/logoMintWhite.png'
 
 const { greetingStr, appNameStr } = constant.header
 
+export const headerHeight = 'max(15vh, 8rem)'
+
 const headerStyle = {
   background: 'linear-gradient(180deg, #0E4B75 0%, #0D2145 100%)',
-  height: 'max(15vh, 8rem)',
+  height: headerHeight,
   fontSize: 'max(5vh, 2.7rem)',
   fontWeight: 'bold' as const,
   color: 'white',
