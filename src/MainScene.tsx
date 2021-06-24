@@ -3,12 +3,22 @@ import React, { useEffect, useRef, useState } from 'react'
 import { CodeScreen } from './components/CodeScreen'
 import { Header } from './components/Header'
 import { SelectScreen } from './components/SelectScreen'
+import { Waves } from './components/Waves'
 import { currencies, fetchExchangeRates } from './exchangeRate'
 
 const bodyStyle = {
   margin: '0px',
   padding: '0px',
-  height: '100%'
+  height: '100%',
+  width: '100%',
+  minHeight: '768px',
+  overflowX: 'hidden',
+  position: 'relative'
+}
+
+const wavesPositionDivStyle = {
+  position: 'absolute' as const,
+  bottom: '0'
 }
 
 const rateFetchDelay = 600000 // Variable to set delay for fetching exchange rates (milliseconds)
@@ -71,6 +81,9 @@ export function MainScene(): JSX.Element {
           handleOptionClick={handleOptionClick}
         />
       )}
+      <div style={wavesPositionDivStyle}>
+        <Waves />
+      </div>
     </>
   )
 }
