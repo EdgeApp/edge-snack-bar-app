@@ -79,6 +79,10 @@ export function MainScene(): JSX.Element {
       if (coinSelection === 'XTZ') {
         const tezosUri = generateTezosUri(currencyAmount, currencyInfo.address)
         setQrCodeValue(tezosUri)
+      } else if (coinSelection === 'XLM') {
+        setQrCodeValue(
+          `web+stellar:pay?destination=${currencyInfo.address}&amount=${currencyAmount}`
+        )
       } else {
         setQrCodeValue(
           `${currencyInfo?.currencyName}:${currencyInfo?.address}?amount=${currencyAmount}`
