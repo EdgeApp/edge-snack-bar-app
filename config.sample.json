@@ -33,6 +33,10 @@
         "XRP": {
             "address": "",
             "currencyName": "ripple"
+        },
+        "XTZ": {
+            "address": "",
+            "currencyName": "tezos"
         }
     }
 }
