@@ -16,7 +16,7 @@
     "lint": "eslint .",
     "precommit": "lint-staged && npm-run-all test -p build.*",
     "prepare": "husky install && npm-run-all clean -p build.*",
-    "test": "mocha -r sucrase/register 'test/**/*.test.ts'"
+    "test": "mocha -r sucrase/register 'test/**/*.test.js'"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint"
@@ -31,7 +31,8 @@
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
-    "react-simple-animate": "^3.3.12"
+    "react-simple-animate": "^3.3.12",
+    "tezos-uri": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
