@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { CodeScreen } from './components/CodeScreen'
 import { Header, headerHeight } from './components/Header'
 import { SelectScreen } from './components/SelectScreen'
 import { Waves } from './components/Waves'
 import { currencies, fetchExchangeRates } from './exchangeRate'
+import { generateTezosUri } from './utils/generateUris'
 
 const bodyStyle = {
   margin: '0px',
@@ -46,7 +47,6 @@ const wavesPositionDivStyle = {
 const rateFetchDelay = 600000 // Variable to set delay for fetching exchange rates (milliseconds)
 
 export function MainScene(): JSX.Element {
-  const isInitialRender = useRef(true) // Create a mutable ref object to keep track of initial render
   const [usdToCoinRates, setUsdToCoinRates] = useState({}) // State variable to keep track of the exchange rates
   const [showCodeScreen, setShowCodeScreen] = useState(false) // State variable to determine whether to show the code screen
   const [coinSelection, setCoinSelection] = useState('') // State variable that keeps track of coin selection
@@ -65,23 +65,29 @@ export function MainScene(): JSX.Element {
         .finally(() => setTimeout(updateExchangeRates, rateFetchDelay))
     }
 
-    // Check if this is the initial render
-    if (isInitialRender.current) {
-      isInitialRender.current = false // Set isInitialMount to false
+    Object.assign(document.body.style, bodyStyle) // Update styling for 'body'
 
-      Object.assign(document.body.style, bodyStyle) // Update styling for 'body'
+    updateExchangeRates()
+  }, []) // Only run on initial render
 
-      updateExchangeRates()
-    } else {
-      // On subsequent renders, update QR code value
+  useEffect(() => {
+    try {
+      // Update QR code value
       const currencyInfo = currencies[coinSelection]
       const currencyAmount: number = usdToCoinRates[coinSelection]
       // Update QR code's value in state
-      setQrCodeValue(
-        `${currencyInfo?.currencyName}:${currencyInfo?.address}?amount=${currencyAmount}`
-      )
+      if (coinSelection === 'XTZ') {
+        const tezosUri = generateTezosUri(currencyAmount, currencyInfo.address)
+        setQrCodeValue(tezosUri)
+      } else {
+        setQrCodeValue(
+          `${currencyInfo?.currencyName}:${currencyInfo?.address}?amount=${currencyAmount}`
+        )
+      }
+    } catch (e) {
+      console.log(e)
     }
-  }, [usdToCoinRates, coinSelection]) // Only re-run the effect if the exchange rates or the coin selection changes
+  }, [usdToCoinRates, coinSelection]) // Only run the effect if the exchange rates or the coin selection changes
 
   const handleOptionClick = (option): void => {
     setCoinSelection(option)
