@@ -26,6 +26,10 @@
             "address": "",
             "currencyName": "litecoin"
         },
+        "XLM": {
+            "address": "",
+            "currencyName": "stellar"
+        },
         "XMR": {
             "address": "",
             "currencyName": "monero"
