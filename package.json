@@ -13,6 +13,7 @@
     "clean": "rimraf lib",
     "demo": "parcel serve src/index.html --open",
     "fix": "npm run lint -- --fix",
+    "ghpages-deploy": "./ghpages-deploy.sh",
     "lint": "eslint .",
     "precommit": "lint-staged && npm-run-all test -p build.*",
     "prepare": "husky install && npm-run-all clean -p build.*",

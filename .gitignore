@@ -1,6 +1,7 @@
 # Build output:
 /.cache/
 /dist/
+/docs/
 /lib/
 /config.json
 
