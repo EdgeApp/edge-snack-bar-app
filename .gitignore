@@ -2,6 +2,7 @@
 /.parcel-cache/
 /cache/
 /dist/
+/docs/
 /lib/
 /config.json
 
