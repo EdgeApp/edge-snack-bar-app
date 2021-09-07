@@ -1,6 +1,15 @@
+import 'swiper/swiper-bundle.min.css'
+
 import React from 'react'
+import SwiperCore, { Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import config from '../../config.json'
+
+// install Swiper modules
+SwiperCore.use([Pagination])
+
+const ITEMS_PER_PAGE = 16
 
 interface SelectScreenProps {
   usdToCoinRates: string[]
@@ -44,23 +53,42 @@ export function SelectScreen(props: SelectScreenProps): JSX.Element {
     props.handleOptionClick(option)
   }
 
+  const { usdToCoinRates } = props
+  usdToCoinRates.sort((a, b) => a.localeCompare(b))
+
+  const slideArr: string[][] = []
+  usdToCoinRates.forEach((currencyCode, index) => {
+    if (index % ITEMS_PER_PAGE === 0) slideArr.push([])
+    const slideNum = Math.floor(index / ITEMS_PER_PAGE)
+    slideArr[slideNum].push(currencyCode)
+  })
+
   return (
     <>
-      <div style={optionGridDivStyle}>
-        {props.usdToCoinRates
-          .sort((a, b) => a.localeCompare(b))
-          .map(option => (
-            <div style={optionDivStyle} key={option}>
-              <img
-                src={assetHost + tokenPath + option + tokenFilenameInfo}
-                style={iconStyle}
-                onClick={() => handleClick(option)}
-              />
-              <br />
-              <p style={labelStyle}>{option}</p>
+      <Swiper pagination={{ clickable: true }}>
+        {slideArr.map((currencyArr, index) => (
+          <SwiperSlide key={index}>
+            <div style={optionGridDivStyle}>
+              {currencyArr.map(option => (
+                <div style={optionDivStyle} key={option}>
+                  <img
+                    src={
+                      assetHost +
+                      tokenPath +
+                      `${String(option)}` +
+                      tokenFilenameInfo
+                    }
+                    style={iconStyle}
+                    onClick={() => handleClick(option)}
+                  />
+                  <br />
+                  <p style={labelStyle}>{option}</p>
+                </div>
+              ))}
             </div>
-          ))}
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </>
   )
 }
