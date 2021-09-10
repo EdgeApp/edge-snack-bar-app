@@ -12,7 +12,9 @@
     "target": "es2015",
 
     "strict": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "lib"]
 }
