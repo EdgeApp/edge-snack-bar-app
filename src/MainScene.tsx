@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import config from '../config.json'
 import { CodeScreen } from './components/CodeScreen'
 import { Header, headerHeight } from './components/Header'
 import { SelectScreen } from './components/SelectScreen'
@@ -46,6 +47,11 @@ const wavesPositionDivStyle = {
 
 const rateFetchDelay = 600000 // Variable to set delay for fetching exchange rates (milliseconds)
 
+let defaultUsdAmountFloat = parseFloat(config.defaultUsdAmount)
+if (isNaN(defaultUsdAmountFloat)) {
+  defaultUsdAmountFloat = 1
+}
+
 export function MainScene(): JSX.Element {
   const [usdToCoinRates, setUsdToCoinRates] = useState({}) // State variable to keep track of the exchange rates
   const [showCodeScreen, setShowCodeScreen] = useState(false) // State variable to determine whether to show the code screen
@@ -74,7 +80,10 @@ export function MainScene(): JSX.Element {
     try {
       // Update QR code value
       const currencyInfo = currencies[coinSelection]
-      const currencyAmount: number = usdToCoinRates[coinSelection]
+      const usdAmountFloat = parseFloat(currencyInfo.usdAmount)
+      const currencyAmount: number = isNaN(usdAmountFloat)
+        ? usdToCoinRates[coinSelection] * defaultUsdAmountFloat
+        : usdToCoinRates[coinSelection] * usdAmountFloat
       // Update QR code's value in state
       if (coinSelection === 'XTZ') {
         const tezosUri = generateTezosUri(currencyAmount, currencyInfo.address)
