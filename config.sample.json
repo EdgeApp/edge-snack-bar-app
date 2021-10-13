@@ -1,46 +1,57 @@
 {
     "ratesServerAddress": "https://rates1.edge.app/",
     "assetServerAddress": "https://content.edge.app/",
+    "defaultUsdAmount": "1",
     "currencies": {
         "BCH": {
             "address": "",
-            "currencyName": "bitcoincash"
+            "currencyName": "bitcoincash",
+            "usdAmount": ""
         },
         "BTC": {
             "address": "",
-            "currencyName": "bitcoin"
+            "currencyName": "bitcoin",
+            "usdAmount": ""
         },
         "DOGE": {
             "address": "",
-            "currencyName": "dogecoin"
+            "currencyName": "dogecoin",
+            "usdAmount": ""
         },
         "ETH": {
             "address": "",
-            "currencyName": "ethereum"
+            "currencyName": "ethereum",
+            "usdAmount": ""
         },
         "FIO": {
             "address": "",
-            "currencyName": "fio"
+            "currencyName": "fio",
+            "usdAmount": ""
         },
         "LTC": {
             "address": "",
-            "currencyName": "litecoin"
+            "currencyName": "litecoin",
+            "usdAmount": ""
         },
         "XLM": {
             "address": "",
-            "currencyName": "stellar"
+            "currencyName": "stellar",
+            "usdAmount": ""
         },
         "XMR": {
             "address": "",
-            "currencyName": "monero"
+            "currencyName": "monero",
+            "usdAmount": ""
         },
         "XRP": {
             "address": "",
-            "currencyName": "ripple"
+            "currencyName": "ripple",
+            "usdAmount": ""
         },
         "XTZ": {
             "address": "",
-            "currencyName": "tezos"
+            "currencyName": "tezos",
+            "usdAmount": ""
         }
     }
 }
