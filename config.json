@@ -1,0 +1,117 @@
+{
+    "ratesServerAddress": "https://rates1.edge.app/",
+    "assetServerAddress": "https://content.edge.app/",
+    "defaultUsdAmount": "",
+    "currencies": {
+        "BCH": {
+            "address": "qq7wrfml90352qpk5ttszlhu5eqxzrjy2vgp3ul93z",
+            "currencyName": "bitcoincash",
+            "usdAmount": ""
+        },
+        "BNB": {
+            "address": "bnb1rt449yu7us6hmk4pmyr8talc60ydkwp4qkvcl7",
+            "currencyName": "binance",
+            "usdAmount": ""
+        },
+        "BSV": {
+            "address": "1CDy2LtbCpyA557A9oUvN8ySotTJcxhckK",
+            "currencyName": "bitcoin",
+            "usdAmount": ""
+        },
+        "BTC": {
+            "address": "32HtSR38USjuD4iaTbEhD566m5DGon7tuD",
+            "currencyName": "bitcoin",
+            "usdAmount": ""
+        },
+        "DASH": {
+            "address": "XbBzZFNPUix9Jj22mY9NTxenZJfu89bUuk",
+            "currencyName": "dash",
+            "usdAmount": ""
+        },
+        "DAI": {
+            "address": "0x0d73358506663d484945ba85d0cd435ad610b0a0",
+            "currencyName": "ethereum",
+            "usdAmount": ""
+        },
+        "DGB": {
+            "address": "STMNt6tHpvohekFBcbZUpjWmBHUHtnrigT",
+            "currencyName": "digibyte",
+            "usdAmount": ""
+        },
+        "DOGE": {
+            "address": "DTxoL3qqwYoMFnodGoFxGwobVrri5Vb68V",
+            "currencyName": "dogecoin",
+            "usdAmount": ""
+        },
+        "ETH": {
+            "address": "0x0d73358506663d484945ba85d0cd435ad610b0a0",
+            "currencyName": "ethereum",
+            "usdAmount": ""
+        },
+        "FIO": {
+            "address": "FIO6FT1tDGAm2qGBxq88u9jFg7JmrmXiuRCE1F8HrcWox7S75gce8",
+            "currencyName": "fio",
+            "usdAmount": ""
+        },
+        "FIRO": {
+            "address": "a2A4xaLyac8vgnfEVek8g6MBWsVwNA3o9F",
+            "currencyName": "firo",
+            "usdAmount": ""
+        },
+        "FTM": {
+            "address": "0x01fb7b31bebe06a053dc03b5306d5fa00bde603e",
+            "currencyName": "fantom",
+            "usdAmount": ""
+        },
+        "HBAR": {
+            "address": "0.0.498055",
+            "currencyName": "hedera",
+            "usdAmount": ""
+        },
+        "LTC": {
+            "address": "MM5UkxViVzabyWbMBLW4PmUWkwkYD78Wmu",
+            "currencyName": "litecoin",
+            "usdAmount": ""
+        },
+        "RBTC": {
+            "address": "0xc0947fd397d713737d2417dc9f83070d1dee9b21",
+            "currencyName": "rsk",
+            "usdAmount": ""
+        },
+        "USDC": {
+            "address": "0x0d73358506663d484945ba85d0cd435ad610b0a0",
+            "currencyName": "ethereum",
+            "usdAmount": ""
+        },
+        "USDT": {
+            "address": "0x0d73358506663d484945ba85d0cd435ad610b0a0",
+            "currencyName": "ethereum",
+            "usdAmount": ""
+        },
+        "VTC": {
+            "address": "36jpE12bT9bWZwDxs9LX3uLmhAqoLRjpwt",
+            "currencyName": "vertcoin",
+            "usdAmount": ""
+        },
+        "XLM": {
+            "address": "GBEVGJYAUKJ2TVPMC3GEPI2GGZQLMWZDRWJCVNBXCJ3ELYTDPHVQQM74",
+            "currencyName": "stellar",
+            "usdAmount": ""
+        },
+        "XMR": {
+            "address": "46qxvuS78CNBoiiKmDjvjd5pMAZrTBbDNNHDoP52jKj9j5mk6m4R5nU6BDrWQURiWV9a2n5Sy8Qo4aJskKa92FX1GpZFiYA",
+            "currencyName": "monero",
+            "usdAmount": ""
+        },
+        "XRP": {
+            "address": "rfuESo7eHUnvebxgaFjfYxfwXhM2uBPAj3",
+            "currencyName": "ripple",
+            "usdAmount": ""
+        },
+        "XTZ": {
+            "address": "tz1cVgSd4oY25pDkH7vdvVp5DfPkZwT2hXwX",
+            "currencyName": "tezos",
+            "usdAmount": ""
+        }
+    }
+}
