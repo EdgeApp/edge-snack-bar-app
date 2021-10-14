@@ -6,6 +6,7 @@ import constant from './constant.json'
 export interface CurrencyOption {
   address: string
   currencyName: string
+  usdAmount: string
 }
 
 const asRatesServerResponse = asObject({
