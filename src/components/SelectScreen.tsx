@@ -17,7 +17,7 @@ interface SelectScreenProps {
 }
 
 const assetHost: string = config.assetServerAddress
-const tokenPath: string = 'snackBarAssets/'
+const tokenPath: string = 'currencyIcons/'
 const tokenFilenameInfo: string = '-token-scalable.svg'
 
 const optionGridDivStyle = {
@@ -53,41 +53,50 @@ export function SelectScreen(props: SelectScreenProps): JSX.Element {
     props.handleOptionClick(option)
   }
 
-  const { usdToCoinRates } = props
-  usdToCoinRates.sort((a, b) => a.localeCompare(b))
 
-  const slideArr: string[][] = []
-  usdToCoinRates.forEach((currencyCode, index) => {
+  const options = Object.entries(config.currencies).sort();
+
+  console.log("Options: ", options)
+
+  const { usdToCoinRates } = props
+  const list = Object.keys(usdToCoinRates).sort((a, b) => a.localeCompare(b))
+
+  const slideArr: object[][] = []
+  options.forEach((obj, index) => {
     if (index % ITEMS_PER_PAGE === 0) slideArr.push([])
     const slideNum = Math.floor(index / ITEMS_PER_PAGE)
-    slideArr[slideNum].push(currencyCode)
+    slideArr[slideNum].push(obj)
   })
 
+  console.log("Slide Array: ", slideArr)
   return (
     <>
       <Swiper pagination={{ clickable: true }}>
-        {slideArr.map((currencyArr, index) => (
-          <SwiperSlide key={index}>
-            <div style={optionGridDivStyle}>
-              {currencyArr.map(option => (
-                <div style={optionDivStyle} key={option}>
-                  <img
-                    src={
-                      assetHost +
-                      tokenPath +
-                      `${String(option)}` +
-                      tokenFilenameInfo
-                    }
-                    style={iconStyle}
-                    onClick={() => handleClick(option)}
-                  />
-                  <br />
-                  <p style={labelStyle}>{option}</p>
-                </div>
-              ))}
-            </div>
-          </SwiperSlide>
-        ))}
+        {slideArr.map((currencyArr, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <div style={optionGridDivStyle}>
+                {currencyArr.map(currency => (
+                  <div style={optionDivStyle} key={currency[0]}>
+                    <img
+                      src={
+                        assetHost +
+                        tokenPath +
+                        `${String(currency[1].chain).toLowerCase()}` + '/' +
+                        `${String(currency[1].currencyName).toLowerCase()}` + '.png'
+                      }
+                      style={iconStyle}
+                      onClick={() => handleClick(currency[0])}
+                    />
+                    <br />
+                    <p style={labelStyle}>{currency[0]}</p>
+                  </div>
+                )
+                )}
+              </div>
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
     </>
   )
