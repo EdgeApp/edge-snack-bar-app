@@ -125,7 +125,7 @@ export function MainScene(): JSX.Element {
         )}
         {!showCodeScreen && (
           <SelectScreen
-            usdToCoinRates={Object.keys(usdToCoinRates)}
+            usdToCoinRates={usdToCoinRates}
             handleOptionClick={handleOptionClick}
           />
         )}

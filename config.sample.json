@@ -1,56 +1,186 @@
 {
     "ratesServerAddress": "https://rates1.edge.app/",
     "assetServerAddress": "https://content.edge.app/",
-    "defaultUsdAmount": "1",
+    "defaultUsdAmount": "",
     "currencies": {
         "BCH": {
             "address": "",
+            "chain": "bitcoincash",
             "currencyName": "bitcoincash",
+            "usdAmount": ""
+        },
+        "BNB": {
+            "address": "",
+            "chain": "binance",
+            "currencyName": "binance",
+            "usdAmount": ""
+        },
+        "BSV": {
+            "address": "",
+            "chain": "bitcoinsv",
+            "currencyName": "bitcoinsv",
             "usdAmount": ""
         },
         "BTC": {
             "address": "",
+            "chain": "bitcoin",
             "currencyName": "bitcoin",
+            "usdAmount": ""
+        },
+        "DASH": {
+            "address": "",
+            "chain": "dash",
+            "currencyName": "dash",
+            "usdAmount": ""
+        },
+        "DAI": {
+            "address": "",
+            "chain": "ethereum",
+            "currencyName": "6B175474E89094C44Da98b954EedeAC495271d0F",
+            "usdAmount": ""
+        },
+        "DGB": {
+            "address": "",
+            "chain": "digibyte",
+            "currencyName": "digibyte",
             "usdAmount": ""
         },
         "DOGE": {
             "address": "",
+            "chain": "dogecoin",
             "currencyName": "dogecoin",
             "usdAmount": ""
         },
         "ETH": {
             "address": "",
+            "chain": "ethereum",
             "currencyName": "ethereum",
             "usdAmount": ""
         },
         "FIO": {
             "address": "",
+            "chain": "fio",
             "currencyName": "fio",
+            "usdAmount": ""
+        },
+        "FIRO": {
+            "address": "",
+            "chain": "zcoin",
+            "currencyName": "zcoin",
+            "usdAmount": ""
+        },
+        "FTM": {
+            "address": "",
+            "chain": "fantom",
+            "currencyName": "fantom",
+            "usdAmount": ""
+        },
+        "HBAR": {
+            "address": "",
+            "chain": "hedera",
+            "currencyName": "hedera",
             "usdAmount": ""
         },
         "LTC": {
             "address": "",
+            "chain": "litecoin",
             "currencyName": "litecoin",
+            "usdAmount": ""
+        },
+        "RBTC": {
+            "address": "",
+            "chain": "rsk",
+            "currencyName": "rsk",
+            "usdAmount": ""
+        },
+        "USDC": {
+            "address": "",
+            "chain": "ethereum",
+            "currencyName": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "usdAmount": ""
+        },
+        "USDT": {
+            "address": "",
+            "chain": "ethereum",
+            "currencyName": "dAC17F958D2ee523a2206206994597C13D831ec7",
+            "usdAmount": ""
+        },
+        "VTC": {
+            "address": "",
+            "chain": "vertcoin",
+            "currencyName": "vertcoin",
             "usdAmount": ""
         },
         "XLM": {
             "address": "",
+            "chain": "stellar",
             "currencyName": "stellar",
             "usdAmount": ""
         },
         "XMR": {
             "address": "",
+            "chain": "monero",
             "currencyName": "monero",
             "usdAmount": ""
         },
         "XRP": {
             "address": "",
+            "chain": "ripple",
             "currencyName": "ripple",
             "usdAmount": ""
         },
         "XTZ": {
             "address": "",
+            "chain": "tezos",
             "currencyName": "tezos",
+            "usdAmount": ""
+        },
+        "ZEC": {
+            "address": "",
+            "chain": "zcash",
+            "currencyName": "zcash",
+            "usdAmount": ""
+        },
+        "SOL": {
+            "address": "",
+            "chain": "solana",
+            "currencyName": "Solana",
+            "usdAmount": ""
+        },
+        "RVN": {
+            "address": "",
+            "chain": "ravencoin",
+            "currencyName": "ravencoin",
+            "usdAmount": ""
+        },
+        "QTUM": {
+            "address": "",
+            "chain": "QTUM",
+            "currencyName": "QTUM",
+            "usdAmount": ""
+        },
+        "GRS": {
+            "address": "",
+            "chain": "groestlcoin",
+            "currencyName": "groestlcoin",
+            "usdAmount": ""
+        },
+        "MATIC": {
+            "address": "",
+            "chain": "ethereum",
+            "currencyName": "7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+            "usdAmount": ""
+        },
+        "CELO": {
+            "address": "",
+            "chain": "celo",
+            "currencyName": "celo",
+            "usdAmount": ""
+        },
+        "AVAX": {
+            "address": "",
+            "chain": "avalanche",
+            "currencyName": "avalanche",
             "usdAmount": ""
         }
     }
