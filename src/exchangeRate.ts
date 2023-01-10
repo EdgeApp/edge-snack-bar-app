@@ -5,7 +5,7 @@ import constant from './constant.json'
 
 export interface CurrencyOption {
   address: string
-  currencyName: string
+  currencyPluginId: string
   usdAmount: string
 }
 

@@ -94,7 +94,7 @@ export function MainScene(): JSX.Element {
         )
       } else {
         setQrCodeValue(
-          `${currencyInfo?.currencyName}:${currencyInfo?.address}?amount=${currencyAmount}`
+          `${currencyInfo?.currencyPluginId}:${currencyInfo?.address}?amount=${currencyAmount}`
         )
       }
     } catch (e) {

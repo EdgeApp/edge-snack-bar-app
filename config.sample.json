@@ -5,52 +5,52 @@
     "currencies": {
         "BCH": {
             "address": "",
-            "currencyName": "bitcoincash",
+            "currencyPluginId": "bitcoincash",
             "usdAmount": ""
         },
         "BTC": {
             "address": "",
-            "currencyName": "bitcoin",
+            "currencyPluginId": "bitcoin",
             "usdAmount": ""
         },
         "DOGE": {
             "address": "",
-            "currencyName": "dogecoin",
+            "currencyPluginId": "dogecoin",
             "usdAmount": ""
         },
         "ETH": {
             "address": "",
-            "currencyName": "ethereum",
+            "currencyPluginId": "ethereum",
             "usdAmount": ""
         },
         "FIO": {
             "address": "",
-            "currencyName": "fio",
+            "currencyPluginId": "fio",
             "usdAmount": ""
         },
         "LTC": {
             "address": "",
-            "currencyName": "litecoin",
+            "currencyPluginId": "litecoin",
             "usdAmount": ""
         },
         "XLM": {
             "address": "",
-            "currencyName": "stellar",
+            "currencyPluginId": "stellar",
             "usdAmount": ""
         },
         "XMR": {
             "address": "",
-            "currencyName": "monero",
+            "currencyPluginId": "monero",
             "usdAmount": ""
         },
         "XRP": {
             "address": "",
-            "currencyName": "ripple",
+            "currencyPluginId": "ripple",
             "usdAmount": ""
         },
         "XTZ": {
             "address": "",
-            "currencyName": "tezos",
+            "currencyPluginId": "tezos",
             "usdAmount": ""
         }
     }
