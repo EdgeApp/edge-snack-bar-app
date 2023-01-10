@@ -6,12 +6,13 @@
   "repository": "https://github.com/EdgeApp/edge-snack-bar-app",
   "license": "MIT",
   "author": "Airbitz, Inc.",
-  "main": "lib/index.js",
+  "source": "src/index.html",
   "scripts": {
     "build.lib": "sucrase -q -t typescript,imports,jsx -d ./lib ./src",
     "build.types": "tsc",
-    "clean": "rimraf lib",
-    "demo": "parcel serve src/index.html --open",
+    "build.dist": "parcel build",
+    "clean": "rimraf lib dist",
+    "demo": "parcel serve src/index.html",
     "fix": "npm run lint -- --fix",
     "lint": "eslint .",
     "precommit": "lint-staged && npm-run-all test -p build.*",
@@ -34,9 +35,6 @@
     "tezos-uri": "^2.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/plugin-transform-runtime": "^7.14.3",
-    "@babel/preset-react": "^7.8.3",
     "@types/chai": "^4.2.9",
     "@types/express": "^4.17.2",
     "@types/mocha": "^7.0.1",
@@ -59,8 +57,9 @@
     "lint-staged": "^10.5.3",
     "mocha": "^7.0.1",
     "npm-run-all": "^4.1.5",
-    "parcel-bundler": "^1.12.5",
+    "parcel": "^2.8.2",
     "prettier": "^2.2.0",
+    "process": "^0.11.10",
     "sucrase": "^3.12.1",
     "typescript": "^4.1.2"
   }

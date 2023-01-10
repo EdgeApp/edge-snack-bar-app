@@ -1,5 +1,6 @@
 # Build output:
-/.cache/
+/.parcel-cache/
+/cache/
 /dist/
 /lib/
 /config.json
@@ -13,7 +14,3 @@ yarn-error.log
 # Editors:
 .DS_Store
 .idea/
-.vscode/
-
-#Edge Encrypted Files:
-edge/
