@@ -1,7 +1,6 @@
-import { asObject, asString } from 'cleaners'
+import { asArray, asObject, asString } from 'cleaners'
 
 import config from '../config.json'
-import constant from './constant.json'
 
 export interface CurrencyOption {
   address: string
@@ -10,44 +9,51 @@ export interface CurrencyOption {
 }
 
 const asRatesServerResponse = asObject({
-  currency_pair: asString,
-  date: asString,
-  exchangeRate: asString
+  data: asArray(
+    asObject({
+      currency_pair: asString,
+      date: asString,
+      exchangeRate: asString
+    })
+  )
 })
 
 const baseUri: string = config.ratesServerAddress
-const route: string = 'v1/exchangeRate/'
-const queryStr: string = '?currency_pair=USD_'
+const route: string = 'v2/exchangeRates'
 export const currencies: { [key: string]: CurrencyOption } = config.currencies
-
-const { errorMsg } = constant.exchangeRate
 
 export const fetchExchangeRates = async (): Promise<{
   [key: string]: number
 }> => {
   // Create an arry of promises
-  const promisesArr = Object.keys(currencies).map(async currencyCode => {
-    try {
-      const response = await fetch(baseUri + route + queryStr + currencyCode)
-      const { exchangeRate } = asRatesServerResponse(await response.json())
+  const data = Object.keys(currencies).map(currencyCode => ({
+    currency_pair: `${currencyCode}_iso:USD`
+  }))
 
-      // Check if the response was successful or if the exchange rate is a valid number
-      if (!response.ok || isNaN(parseFloat(exchangeRate))) {
-        throw new TypeError(errorMsg + currencyCode)
-      }
-
-      return { [currencyCode]: +exchangeRate }
-    } catch (e) {
-      console.log(e)
-    }
-  })
-
-  // Resolve array of promises for exchange rates
-  const rates = await Promise.all(promisesArr)
+  const url = `${baseUri}/${route}`
   const exchangeRatesObj = {}
-  for (const rate of rates) {
-    if (rate === undefined) continue
-    Object.assign(exchangeRatesObj, rate)
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data })
+    })
+    if (!response.ok) {
+      const text = await response.text()
+      throw new Error(text)
+    }
+    const reply = await response.json()
+    const { data: exchangeRates } = asRatesServerResponse(reply)
+    exchangeRates.forEach(r => {
+      const ccode = r.currency_pair.split('_')[0]
+      const rate = 1 / Number(r.exchangeRate)
+
+      Object.assign(exchangeRatesObj, { [ccode]: rate.toString() })
+    })
+  } catch (e: any) {
+    console.error(e.message)
   }
+
   return exchangeRatesObj
 }
