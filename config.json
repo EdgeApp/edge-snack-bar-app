@@ -1,0 +1,128 @@
+{
+  "ratesServerAddress": "https://rates1.edge.app",
+  "assetServerAddress": "https://content.edge.app",
+  "defaultUsdAmount": "",
+  "currencies": {
+    "ARRR": {
+      "address": "zs13c7k59ja0xfflnu4knwfn4ml8na2ea5ytcd6felu4e5ra409t5k8a7y3f6p4z9xhxeqzk62lxmw",
+      "currencyPluginId": "piratechain",
+      "usdAmount": ""
+    },
+    "BCH": {
+      "address": "qq7wrfml90352qpk5ttszlhu5eqxzrjy2vgp3ul93z",
+      "currencyPluginId": "bitcoincash",
+      "usdAmount": ""
+    },
+    "BNB": {
+      "address": "bnb1rt449yu7us6hmk4pmyr8talc60ydkwp4qkvcl7",
+      "currencyPluginId": "binance",
+      "usdAmount": ""
+    },
+    "BSV": {
+      "address": "1CDy2LtbCpyA557A9oUvN8ySotTJcxhckK",
+      "currencyPluginId": "bitcoinsv",
+      "networkPrefix": "bitcoin",
+      "usdAmount": ""
+    },
+    "BTC": {
+      "address": "32HtSR38USjuD4iaTbEhD566m5DGon7tuD",
+      "currencyPluginId": "bitcoin",
+      "usdAmount": ""
+    },
+    "DASH": {
+      "address": "XbBzZFNPUix9Jj22mY9NTxenZJfu89bUuk",
+      "currencyPluginId": "dash",
+      "usdAmount": ""
+    },
+    "DAI": {
+      "address": "0x0d73358506663d484945ba85d0cd435ad610b0a0",
+      "currencyPluginId": "ethereum",
+      "usdAmount": ""
+    },
+    "DGB": {
+      "address": "STMNt6tHpvohekFBcbZUpjWmBHUHtnrigT",
+      "currencyPluginId": "digibyte",
+      "usdAmount": ""
+    },
+    "DOGE": {
+      "address": "DTxoL3qqwYoMFnodGoFxGwobVrri5Vb68V",
+      "currencyPluginId": "dogecoin",
+      "usdAmount": ""
+    },
+    "DOT": {
+      "address": "1oUs7ZvTs1mVrtsz25D4c8kQBzvUAtptcEKAnFwWkUrMXzE",
+      "currencyPluginId": "polkadot",
+      "usdAmount": ""
+    },
+    "ETH": {
+      "address": "0x0d73358506663d484945ba85d0cd435ad610b0a0",
+      "currencyPluginId": "ethereum",
+      "usdAmount": ""
+    },
+    "FIO": {
+      "address": "FIO6FT1tDGAm2qGBxq88u9jFg7JmrmXiuRCE1F8HrcWox7S75gce8",
+      "currencyPluginId": "fio",
+      "usdAmount": ""
+    },
+    "FIRO": {
+      "address": "a2A4xaLyac8vgnfEVek8g6MBWsVwNA3o9F",
+      "currencyPluginId": "firo",
+      "usdAmount": ""
+    },
+    "FTM": {
+      "address": "0x01fb7b31bebe06a053dc03b5306d5fa00bde603e",
+      "currencyPluginId": "fantom",
+      "usdAmount": ""
+    },
+    "HBAR": {
+      "address": "0.0.498055",
+      "currencyPluginId": "hedera",
+      "usdAmount": ""
+    },
+    "LTC": {
+      "address": "MM5UkxViVzabyWbMBLW4PmUWkwkYD78Wmu",
+      "currencyPluginId": "litecoin",
+      "usdAmount": ""
+    },
+    "RBTC": {
+      "address": "0xc0947fd397d713737d2417dc9f83070d1dee9b21",
+      "currencyPluginId": "rsk",
+      "usdAmount": ""
+    },
+    "USDC": {
+      "address": "0x0d73358506663d484945ba85d0cd435ad610b0a0",
+      "currencyPluginId": "ethereum",
+      "usdAmount": ""
+    },
+    "USDT": {
+      "address": "0x0d73358506663d484945ba85d0cd435ad610b0a0",
+      "currencyPluginId": "ethereum",
+      "usdAmount": ""
+    },
+    "VTC": {
+      "address": "36jpE12bT9bWZwDxs9LX3uLmhAqoLRjpwt",
+      "currencyPluginId": "vertcoin",
+      "usdAmount": ""
+    },
+    "XLM": {
+      "address": "GBEVGJYAUKJ2TVPMC3GEPI2GGZQLMWZDRWJCVNBXCJ3ELYTDPHVQQM74",
+      "currencyPluginId": "stellar",
+      "usdAmount": ""
+    },
+    "XMR": {
+      "address": "46qxvuS78CNBoiiKmDjvjd5pMAZrTBbDNNHDoP52jKj9j5mk6m4R5nU6BDrWQURiWV9a2n5Sy8Qo4aJskKa92FX1GpZFiYA",
+      "currencyPluginId": "monero",
+      "usdAmount": ""
+    },
+    "XRP": {
+      "address": "rfuESo7eHUnvebxgaFjfYxfwXhM2uBPAj3",
+      "currencyPluginId": "ripple",
+      "usdAmount": ""
+    },
+    "XTZ": {
+      "address": "tz1cVgSd4oY25pDkH7vdvVp5DfPkZwT2hXwX",
+      "currencyPluginId": "tezos",
+      "usdAmount": ""
+    }
+  }
+}
