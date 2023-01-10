@@ -74,6 +74,7 @@ export function SelectScreen(props: SelectScreenProps): JSX.Element {
                   <img
                     src={
                       assetHost +
+                      '/' +
                       tokenPath +
                       `${String(option)}` +
                       tokenFilenameInfo
