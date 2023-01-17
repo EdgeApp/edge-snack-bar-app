@@ -1,11 +1,11 @@
 import { asArray, asObject, asString } from 'cleaners'
 
-import config from '../config.json'
+import config from '../../config.json'
+import { Rates } from '../types'
 
 export interface CurrencyOption {
   address: string
   currencyPluginId: string
-  usdAmount: string
 }
 
 const asRatesServerResponse = asObject({
@@ -22,9 +22,7 @@ const baseUri: string = config.ratesServerAddress
 const route: string = 'v2/exchangeRates'
 export const currencies: { [key: string]: CurrencyOption } = config.currencies
 
-export const fetchExchangeRates = async (): Promise<{
-  [key: string]: number
-}> => {
+export const fetchExchangeRates = async (): Promise<Rates> => {
   // Create an arry of promises
   const data = Object.keys(currencies).map(currencyCode => ({
     currency_pair: `${currencyCode}_iso:USD`

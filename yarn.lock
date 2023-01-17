@@ -1148,10 +1148,22 @@ base-x@^3.0.8:
   dependencies:
     safe-buffer "^5.0.1"
 
+biggystring@^4.1.3:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/biggystring/-/biggystring-4.1.3.tgz#9a7d6e79e82781ecd1504aac30a1a815f073adcc"
+  integrity sha512-u2Uq8rFRHyo8AJgNdOMjwUk6CxOd174LBA63BeHU+SuUOIzFsDu8gIL176128Y6nRrAgEc9U4BYbPDD7zJ+O0g==
+  dependencies:
+    bn.js "^4.11.7"
+
 binary-extensions@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
+
+bn.js@^4.11.7:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.12.0.tgz#775b3f278efbb9718eec7361f483fb36fbbfea88"
+  integrity sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA==
 
 body-parser@1.19.0:
   version "1.19.0"

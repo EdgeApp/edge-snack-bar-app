@@ -10,8 +10,8 @@ interface TezosRequestContent {
 const TEZOS_MULTIPLIER = 1000000
 
 export const generateTezosUri = (
-  currencyAmount: number,
-  address: string
+  address: string,
+  currencyAmount: number
 ): string => {
   try {
     const amount = Math.round(
@@ -27,4 +27,16 @@ export const generateTezosUri = (
     if (Array.isArray(e)) throw new Error(e.toString())
     throw e
   }
+}
+
+export const generateXrpUri = (
+  address: string,
+  currencyAmount?: number
+): string => {
+  const url = `https://ripple.com//send?to=${address}`
+  if (currencyAmount == null) {
+    return url
+  }
+  const amount = currencyAmount.toString()
+  return `${url}&amount=${amount}`
 }

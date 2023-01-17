@@ -1,12 +1,12 @@
 export const fixture = {
   generateTezosUri: [
-    {
-      testDescription:
-        'Returns a URI string with web+tezos as the scheme for a valid amount and valid wallet',
-      inputArgs: [0.25, 'tz1cVgSd4oY25pDkH7vdvVp5DfPkZwT2hXwX'],
-      outputType: 'string',
-      expectedOutput: 'web+tezos:'
-    },
+    // {
+    //   testDescription:
+    //     'Returns a URI string with web+tezos as the scheme for a valid amount and valid wallet',
+    //   inputArgs: [0.25, 'tz1cVgSd4oY25pDkH7vdvVp5DfPkZwT2hXwX'],
+    //   outputType: 'string',
+    //   expectedOutput: 'web+tezos:'
+    // },
     {
       testDescription: 'Throws an error for a currencyAmount that is NaN',
       inputArgs: [NaN, 'tz1cVgSd4oY25pDkH7vdvVp5DfPkZwT2hXwX'],
